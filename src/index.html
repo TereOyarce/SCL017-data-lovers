@@ -5,18 +5,72 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <header></header>
-    <div>lol</div>
-    <git id="lista">
-        
-    </ul>
     <div id="root"></div>
     <script src="main.js" type="module"></script>
- 
+    <header>
+        <a href="index.html"> <img src="images/lol500x300.png"> </a>
+    </header>
+    <!--Contenedor-->
+    <div class="contn">
+        <nav class="buscar"> <input type="search" name="buscar" id="buscar"></nav>
+        <nav class="filtros">
+            <!--Filtro orden alfabetico-->
+            <section class="abc">
+                <select name="AZA">
+                <option selected value="0">Ordenar A-Z,Z-A</option>
+                <option value="1" id="AZ">A-Z</option>
+                <option value="2" id="ZA">Z-A</option>
+            </select>
+            </section>
+            <!--Filtro Tipo-->
+            <section class="tipos">
+                <select name="tipo">
+                    <option selected value="0">Tipo</option>
+                    <option value="1" id="fighter">Fighter</option>
+                    <option value="2" id="tank">Tank</option>
+                    <option value="3" id="mage">Mage</option>
+                    <option value="4" id="assasin">Assasin</option>
+                    <option value="5" id="support">Support</option>
+                    <option value="6" id="marksman">Marksman</option>
+                </select>
+            </section>
+            <!--Filtro Stats-->
+            <section class="stats">
+                <select name="stats">
+                    <option selected value="0">Stats</option>
+                    <option value="1" id="attack">Attack</option>
+                    <option value="2" id="defense">Defense</option>
+                    <option value="3" id="magic">Magic</option>
+                </select>
+            </section>
+            <!--Filtro dificultad-->
+            <section class="dificultad">
+                <select name="difficulty">
+                    <option selected value="0">Difficulty</option>
+                    <option value="1" id="easy">Easy</option>
+                    <option value="2" id="medium">Medium</option>
+                    <option value="3" id="hard">Hard</option>
+                </select>
+            </section>
+        </nav>
+    </div>
+    <!--Termino Contenedor-->
+    <div class="contenedorChamp">
+
+    </div>
+    <footer>Teresa Oyarce - Nataly Farias &lt;L&gt; 2021</footer>
     
+    <div>lol</div>
+    <ul id="lista">
+
+    </ul>
+
+
 </body>
 
 </html>

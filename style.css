@@ -1,0 +1,28 @@
+/*contenedor padre*/
+.contenedor-campeones
+{
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border: 10px solid black;
+}
+/*a continuacion van los contenedores hijos(en este caso las cards)*/
+.contenedor-campeones > div {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    width: 20%;
+    --height: 200px;
+    margin: 10px;
+    padding-top: 20px;
+    padding-right: 0;
+    padding-bottom: 100px;
+    padding-left: 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+  }

@@ -5,15 +5,20 @@ const contenedorCampeones = document.getElementById("contenedorCampeones");
 
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
 
+
 //Ciclo para recorrer la data e ir mostrando los personajes
 for (let i = 0; i < dataLolAsArray.length; i++) {
 
     //Creo un div section para el html dinamico
     const lolfront = document.createElement("section");
 
+    contenedorCampeones.appendChild(lolfront); //Le doy un padre
+
     //Le asigno una id y una class
-    lolfront.id = "lolfront";
-    lolfront.classname = "lolfront";
+    lolfront.id = "lolfront" + dataLolAsArray[i].id;
+    lolfront.className = "lolfront";
+    document.getElementById(lolfront.id).style.visibility = "visible";
+
 
     //Creo un elemento img para mostrar las imagenes
     const lolimg = document.createElement("img");
@@ -22,8 +27,8 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
 
 
     //Creo elementos y le indico lo que debe ir mostrando cada uno
-    const lolnombre = document.createElement("h1");
-    lolnombre.textContent = dataLolAsArray[i].name;
+    const lolid = document.createElement("h1");
+    lolid.textContent = dataLolAsArray[i].id;
 
     const loltitle = document.createElement("h2");
     loltitle.textContent = dataLolAsArray[i].title
@@ -35,17 +40,19 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
 
     //Le doy un padre a todos los elementos creados
     lolfront.appendChild(lolimg);
-    lolfront.appendChild(lolnombre);
+    lolfront.appendChild(lolid);
     lolfront.appendChild(loltitle);
     lolfront.appendChild(lolblurb);
 
-    contenedorCampeones.appendChild(lolfront); //Con esto,le indico que debe mostrar todo lo anterior 
 
     // Parte de atrás
     const lolback = document.createElement("section");
 
-    lolback.id = "lolback";
+    lolfront.appendChild(lolback); // Le doy un padre
+
+    lolback.id = "lolback" + dataLolAsArray[i].id;
     lolback.className = "lolback";
+    document.getElementById(lolback.id).style.visibility = "hidden";
 
     //Creo los elementos que mostrará
     const loltags = document.createElement("h1");
@@ -72,18 +79,29 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
     lolback.appendChild(loldificultad);
 
 
-    lolfront.appendChild(lolback); //Con esto,le indico que debe mostrar todo lo anterior 
-
-
-    //Mostrar y ocultar la info de las cartas
+    //Mostrar y ocultar la info de las carta
     lolfront.addEventListener("click", () => {
-        document.getElementById("lolback").style.visibility = "visible";
-        document.getElementById("lolfront").style.visibility = "hidden";
+        let visiblefront = document.getElementById(lolfront.id).style.visibility;
+        let visibleback = document.getElementById(lolback.id).style.visibility;
+        if (visiblefront == "visible" && visibleback == "hidden") {
+            document.getElementById(lolfront.id).style.visibility = "hidden";
+            document.getElementById(lolback.id).style.visibility = "visible";
+        } else {
+            document.getElementById(lolfront.id).style.visibility = "visible";
+            document.getElementById(lolback.id).style.visibility = "hidden";
 
+        }
 
     })
 
 };
+
+
+
+
+
+
+
 
 
 

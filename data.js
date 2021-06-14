@@ -25,6 +25,9 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
     const lolnombre = document.createElement("h1");
     lolnombre.textContent = dataLolAsArray[i].name;
 
+    const loltitle = document.createElement("h2");
+    loltitle.textContent = dataLolAsArray[i].title
+
 
     const lolblurb = document.createElement("h2");
     lolblurb.textContent = dataLolAsArray[i].blurb;
@@ -33,6 +36,7 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
     //Le doy un padre a todos los elementos creados
     lolfront.appendChild(lolimg);
     lolfront.appendChild(lolnombre);
+    lolfront.appendChild(loltitle);
     lolfront.appendChild(lolblurb);
 
     contenedorCampeones.appendChild(lolfront); //Con esto,le indico que debe mostrar todo lo anterior 
@@ -47,16 +51,26 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
     const loltags = document.createElement("h1");
     loltags.textContent = dataLolAsArray[i].tags;
 
-    const lolstats = document.createElement("h1");
-    lolstats.textContent = dataLolAsArray[i].stats;
+    const lolattack = document.createElement("h1");
+    lolattack.textContent = dataLolAsArray[i].info.attack;
 
-    const lolinfo = document.createElement("h1");
-    lolinfo.textContent = dataLolAsArray[i].info;
+    const loldefense = document.createElement("h1");
+    loldefense.textContent = dataLolAsArray[i].info.defense;
+
+    const lolmagic = document.createElement("h1");
+    lolmagic.textContent = dataLolAsArray[i].info.magic;
+
+    const loldificultad = document.createElement("h1");
+    loldificultad.textContent = dataLolAsArray[i].info.difficulty;
+
 
     //Les doy un padre
-    lolback.appendChild(lolinfo);
-    lolback.appendChild(lolstats);
     lolback.appendChild(loltags);
+    lolback.appendChild(lolattack);
+    lolback.appendChild(loldefense);
+    lolback.appendChild(lolmagic);
+    lolback.appendChild(loldificultad);
+
 
     lolfront.appendChild(lolback); //Con esto,le indico que debe mostrar todo lo anterior 
 

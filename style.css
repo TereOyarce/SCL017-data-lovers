@@ -1,13 +1,13 @@
 .contenedorCampeones {
     width: 90%;
     display: flex;
-    margin-top: 0.8rem;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: row;
     border: 0.8rem solid black;
-    align-items: center;
     margin-left: 4rem;
     margin-right: 1rem;
+    align-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #lolfront {

@@ -11,4 +11,5 @@ const dificultad = document.querySelector("dificultad");
 
 
 
+
 console.log(data);

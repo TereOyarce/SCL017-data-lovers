@@ -10,7 +10,7 @@
     flex-wrap: wrap;
 }
 
-#lolfront {
+.lolfront {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,22 +28,26 @@
     border: 0.5rem solid black;
 }
 
-#lolfront h2 {
+.lolfront.id {
+    visibility: visible;
+}
+
+.lolfront h2 {
     text-align: justify;
     padding: 1rem;
     font-size: small;
 }
 
-#lolfront h1 {
+.lolfront h1 {
     align-items: center;
 }
 
-#lolfront img {
+.lolfront img {
     width: 5rem;
     align-items: center;
 }
 
-#lolback {
+.lolback {
     width: 90%;
     display: flex;
     margin-top: 0.8rem;
@@ -56,7 +60,7 @@
     visibility: hidden;
 }
 
-#lolback h1 {
+.lolback h1 {
     text-align: justify;
     padding: 1rem;
     font-size: small;

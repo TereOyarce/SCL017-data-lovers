@@ -9,11 +9,11 @@ const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una a
 for (let i = 0; i < dataLolAsArray.length; i++) {
 
     //Creo un div section para el html dinamico
-    const contenedorlol = document.createElement("section");
+    const lolfront = document.createElement("section");
 
     //Le asigno una id y una class
-    contenedorlol.id = "contenedorlol";
-    contenedorlol.classname = "contenedorlol";
+    lolfront.id = "lolfront";
+    lolfront.classname = "lolfront";
 
     //Creo un elemento img para mostrar las imagenes
     const lolimg = document.createElement("img");
@@ -31,13 +31,50 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
 
 
     //Le doy un padre a todos los elementos creados
-    contenedorlol.appendChild(lolimg);
-    contenedorlol.appendChild(lolnombre);
-    contenedorlol.appendChild(lolblurb);
+    lolfront.appendChild(lolimg);
+    lolfront.appendChild(lolnombre);
+    lolfront.appendChild(lolblurb);
 
-    contenedorCampeones.appendChild(contenedorlol); //Con esto,le indico que debe mostrar todo lo anterior 
+    contenedorCampeones.appendChild(lolfront); //Con esto,le indico que debe mostrar todo lo anterior 
+
+    // Parte de atrás
+    const lolback = document.createElement("section");
+
+    lolback.id = "lolback";
+    lolback.className = "lolback";
+
+    //Creo los elementos que mostrará
+    const loltags = document.createElement("h1");
+    loltags.textContent = dataLolAsArray[i].tags;
+
+    const lolstats = document.createElement("h1");
+    lolstats.textContent = dataLolAsArray[i].stats;
+
+    const lolinfo = document.createElement("h1");
+    lolinfo.textContent = dataLolAsArray[i].info;
+
+    //Les doy un padre
+    lolback.appendChild(lolinfo);
+    lolback.appendChild(lolstats);
+    lolback.appendChild(loltags);
+
+    lolfront.appendChild(lolback); //Con esto,le indico que debe mostrar todo lo anterior 
+
+
+    //Mostrar y ocultar la info de las cartas
+    lolfront.addEventListener("click", () => {
+        document.getElementById("lolback").style.visibility = "visible";
+        document.getElementById("lolfront").style.visibility = "hidden";
+
+
+    })
 
 };
+
+
+
+
+
 
 
 

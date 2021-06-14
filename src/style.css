@@ -1,46 +1,63 @@
- 
- 
- .contenedorCampeones {
-     width: 90%;
-     display: flex;
-     margin-top: 0.8rem;
-     justify-content: space-around;
-     flex-wrap: wrap;
-     border: 0.8rem solid black;
-     align-items: center;
-     margin-left: 4rem;
-     margin-right: 1rem;
- }
- 
- #contenedorlol {
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     align-items: center;
-     background-color: #f1f1f1;
-     width: 20%;
-     margin: 10px;
-     padding-top: 1.5rem;
-     padding-right: 0;
-     padding-bottom: 6rem;
-     padding-left: 0;
-     text-align: center;
-     cursor: pointer;
-     font-size: 20px;
-     border: 0.5rem solid black;
- }
- 
- #contenedorlol h2 {
-     text-align: justify;
-     padding: 1rem;
-     font-size: small;
- }
- 
- #contenedorlol h1 {
-     align-items: center;
- }
- 
- #contenedorlol img {
-     width: 5rem;
-     align-items: center;
- }
+.contenedorCampeones {
+    width: 90%;
+    display: flex;
+    margin-top: 0.8rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 0.8rem solid black;
+    align-items: center;
+    margin-left: 4rem;
+    margin-right: 1rem;
+}
+
+#lolfront {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    width: 20%;
+    margin: 10px;
+    padding-top: 1.5rem;
+    padding-right: 0;
+    padding-bottom: 6rem;
+    padding-left: 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    border: 0.5rem solid black;
+}
+
+#lolfront h2 {
+    text-align: justify;
+    padding: 1rem;
+    font-size: small;
+}
+
+#lolfront h1 {
+    align-items: center;
+}
+
+#lolfront img {
+    width: 5rem;
+    align-items: center;
+}
+
+#lolback {
+    width: 90%;
+    display: flex;
+    margin-top: 0.8rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 0.8rem solid black;
+    align-items: center;
+    margin-left: 4rem;
+    margin-right: 1rem;
+    visibility: hidden;
+}
+
+#lolback h1 {
+    text-align: justify;
+    padding: 1rem;
+    font-size: small;
+}

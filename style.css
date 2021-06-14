@@ -1,28 +1,46 @@
-/*contenedor padre*/
-.contenedor-campeones
-{
-    width: 100%;
-    display: flex;
-    margin-top: 10px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    border: 10px solid black;
-}
-/*a continuacion van los contenedores hijos(en este caso las cards)*/
-.contenedor-campeones > div {
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1f1f1;
-    width: 20%;
-    --height: 200px;
-    margin: 10px;
-    padding-top: 20px;
-    padding-right: 0;
-    padding-bottom: 100px;
-    padding-left: 0;
-    text-align: center;
-    cursor: pointer;
-    font-size: 20px;
-  }
+ 
+ 
+ .contenedorCampeones {
+     width: 90%;
+     display: flex;
+     margin-top: 0.8rem;
+     justify-content: space-around;
+     flex-wrap: wrap;
+     border: 0.8rem solid black;
+     align-items: center;
+     margin-left: 4rem;
+     margin-right: 1rem;
+ }
+ 
+ #contenedorlol {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #f1f1f1;
+     width: 20%;
+     margin: 10px;
+     padding-top: 1.5rem;
+     padding-right: 0;
+     padding-bottom: 6rem;
+     padding-left: 0;
+     text-align: center;
+     cursor: pointer;
+     font-size: 20px;
+     border: 0.5rem solid black;
+ }
+ 
+ #contenedorlol h2 {
+     text-align: justify;
+     padding: 1rem;
+     font-size: small;
+ }
+ 
+ #contenedorlol h1 {
+     align-items: center;
+ }
+ 
+ #contenedorlol img {
+     width: 5rem;
+     align-items: center;
+ }

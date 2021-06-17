@@ -12,16 +12,16 @@
 <body>
     <div id="root"></div>
     <script src="main.js" type="module" defer></script>
+    <script src="data.js" type="module" defer></script>
+
     <header>
         <a href="index.html"> <img src="images/lol500x300.png"> </a>
     </header>
     <!--Contenedor-->
     <div class="contn">
-        <form action="" onsubmit="buscarlol(event)">
-            <input type="text" name="buscar" id="buscar" autocomplete="off">
-        </form>
 
         <nav class="filtros">
+
             <!--Filtro orden alfabetico-->
             <section class="abc">
                 <select name="AZA">
@@ -60,6 +60,9 @@
                     <option value="3" id="hard">Hard</option>
                 </select>
             </section>
+            <form action="" onsubmit="buscarlol(event)">
+                <input type="text" name="buscar" id="buscar" placeholder="Buscar..." autocomplete="off">
+            </form>
         </nav>
     </div>
     <!--Termino Contenedor-->
@@ -69,9 +72,13 @@
 
     </div>
 
+    <!--Botones siguiente y atras-->
+    <div id="paginacion"></div>
+    <button type="button" id="botonatras">Atrás</button>
+    <button type="button" id="botonsiguiente">Siguiente</button> page: <span id="page"></span>
 
     <footer>Teresa Oyarce - Nataly Farias &lt;L&gt; 2021</footer>
 </body>
-<script src="data.js" type="module" defer></script>
+
 
 </html>

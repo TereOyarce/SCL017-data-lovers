@@ -1,8 +1,5 @@
 import dataLOL from './data/lol/lol.js';
 
-
-const contenedorCampeones = document.getElementById("contenedorCampeones");
-
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
 
 
@@ -94,6 +91,77 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
 
     })
 
+
+
+    //Paginacion
+    /*
+        const paginaactual = 1;
+        const lolporpagina = 8;
+        const atras = document.getElementById("atras");
+        const siguiente = document.getElementById("siguiente");
+
+        const datalol = dataLolAsArray[i].id;
+
+        if (atras) {
+            atras.addEventListener("click", () => { b_atras() })
+
+            function b_atras() {
+                if (paginaactual > 1) {
+                    paginaactual--;
+                    changePage(paginaactual);
+                }
+            }
+        }
+
+        if (siguiente) {
+            siguiente.addEventListener("click", () => { b_siguiente() })
+
+            function b_siguiente() {
+                if (paginaactual < numPages()) {
+                    paginaactual++;
+                    changePage(pagina);
+                }
+            }
+        }
+
+
+        function changePage(page) {
+            let botonsiguiente = document.getElementById("botonsiguiente");
+            let botonatras = document.getElementById("botonatras");
+            let paginacion = document.getElementById("paginacion");
+            let pagina = document.getElementById("page");
+
+            // Validate page
+            if (page < 1) page = 1;
+            if (page > numPages()) page = numPages();
+
+            paginacion.innerHTML = "";
+
+            for (let n = (page - 1) * lolporpagina; n < (page * lolporpagina); n++) {
+                paginacion.innerHTML += datalol + "<br>";
+            }
+            pagina.innerHTML = page;
+
+            if (page == 1) {
+                botonatras.style.visibility = "hidden";
+            } else {
+                botonsiguiente.style.visibility = "visible";
+            }
+
+            if (page == numPages()) {
+                botonsiguiente.style.visibility = "hidden";
+            } else {
+                botonsiguiente.style.visibility = "visible";
+            }
+        }
+
+        function numPages() {
+            return Math.ceil(datalol.length / lolporpagina);
+        }
+
+        window.onload = function() {
+            changePage(1);
+        };*/
 };
 
 

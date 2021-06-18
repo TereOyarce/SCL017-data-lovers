@@ -1,190 +1,199 @@
-                                     :root {
-                                        --fondo: #132225;
-                                        --celesteclaro: #a6f5d8;
-                                        --celestemedio: #3a7875;
-                                        --celesteoscuro: #14555b;
-                                        --cafeoscuro: #3e3023;
-                                        --cafe: #564624;
-                                        --dorado: #ae914b;
-                                        --doradoclaro: #f4de93;
-                                    }
-                                    
-                                    @font-face {
-                                        font-family: 'Beaufort Extended';
-                                        src: url(./FontsFree-Net-hgsggf.ttf) format('truetype');
-                                        font-style: normal;
-                                        font-weight: normal;
-                                    }
-                                    
-                                    footer {
-                                        color: var(--celesteclaro);
-                                        font-family: Verdana, Geneva, Tahoma, sans-serif;
-                                        font-style: italic;
-                                        font-size: small;
-                                        text-align: center;
-                                        padding: 1rem;
-                                    }
-                                    
-                                    body {
-                                        background-color: var(--fondo);
-                                        margin: 0;
-                                    }
-                                    
-                                    header img {
-                                        display: block;
-                                        margin: auto;
-                                        padding: 1rem;
-                                    }
-                                    
-                                    .contn {
-                                        padding: 1.5rem;
-                                        background-color: var(--celesteoscuro);
-                                        margin-bottom: 1rem;
-                                        margin: 0 auto 0 auto;
-                                        display: flex;
-                                        flex-direction: column;
-                                    }
-                                    
-                                    .filtros {
-                                        display: flex;
-                                        flex-direction: row-reverse;
-                                        justify-content: space-evenly;
-                                        margin-top: 1rem;
-                                    }
-                                    
-                                    @media (max-width: 768px) {
-                                        .contn .filtros {
-                                            justify-content: space-evenly;
-                                            width: auto;
-                                            align-items: center;
-                                            -webkit-flex-wrap: wrap;
-                                            flex-wrap: wrap-reverse;
-                                            margin-top: 1rem;
-                                            margin-bottom: 1rem;
-                                        }
-                                    }
-                                    
-                                    #buscar {
-                                        appearance: none;
-                                        border: 0px;
-                                        border-radius: 0.5rem;
-                                        padding: 0.5rem;
-                                        background-color: var(--celestemedio);
-                                        color: var(--doradoclaro);
-                                        margin-bottom: 1rem;
-                                    }
-                                    
-                                     ::placeholder {
-                                        /*Cambiar las propiedades del texto que aparece dentro de buscar*/
-                                        color: var(--doradoclaro);
-                                        opacity: 50%;
-                                    }
-                                    
-                                    select {
-                                        appearance: none;
-                                        -webkit-appearance: none;
-                                        -moz-appearance: none;
-                                        padding: 0.5rem;
-                                        cursor: pointer;
-                                        width: 10rem;
-                                        background-color: var(--celestemedio);
-                                        color: var(--doradoclaro);
-                                        border-radius: 0.5rem;
-                                        -webkit-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.34);
-                                        -moz-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.34);
-                                        box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.34);
-                                        border: 0px;
-                                        margin-bottom: 0.5rem;
-                                    }
-                                    
-                                    select::after {
-                                        content: '\25BC';
-                                        position: absolute;
-                                        top: 1;
-                                        right: 1;
-                                        padding: 1rem;
-                                        background: #2b2e2e;
-                                        cursor: pointer;
-                                        pointer-events: none;
-                                        transition: .25s all ease;
-                                    }
-                                    
-                                    .contenedorCampeones {
-                                        width: 90%;
-                                        display: flex;
-                                        flex-direction: row;
-                                        border: 0.8rem solid black;
-                                        margin-left: 4rem;
-                                        margin-right: 1rem;
-                                        align-content: flex-start;
-                                        justify-content: center;
-                                        flex-wrap: wrap;
-                                        padding: 1rem;
-                                    }
-                                    
-                                    .lolfront {
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: space-between;
-                                        align-items: center;
-                                        background-color: #f1f1f1;
-                                        width: 20%;
-                                        margin: 10px;
-                                        padding-top: 1.5rem;
-                                        padding-right: 0;
-                                        padding-bottom: 6rem;
-                                        padding-left: 0;
-                                        text-align: center;
-                                        cursor: pointer;
-                                        font-size: 20px;
-                                        border: 0.5rem solid black;
-                                    }
-                                    
-                                    .lolfront.id {
-                                        visibility: visible;
-                                    }
-                                    
-                                    .lolfront h2 {
-                                        text-align: justify;
-                                        padding: 1rem;
-                                        font-size: small;
-                                    }
-                                    
-                                    .lolfront h1 {
-                                        align-items: center;
-                                    }
-                                    
-                                    .lolfront img {
-                                        width: 5rem;
-                                        align-items: center;
-                                    }
-                                    
-                                    .lolback {
-                                        width: 90%;
-                                        display: flex;
-                                        margin-top: 0.8rem;
-                                        justify-content: space-around;
-                                        flex-wrap: wrap;
-                                        border: 0.8rem solid black;
-                                        align-items: center;
-                                        margin-left: 4rem;
-                                        margin-right: 1rem;
-                                        visibility: hidden;
-                                    }
-                                    
-                                    .lolback h1 {
-                                        text-align: justify;
-                                        padding: 1rem;
-                                        font-size: small;
-                                    }
-                                    
-                                    #paginacion {
-                                        width: 90%;
-                                        margin-left: auto;
-                                        margin-right: auto;
-                                        margin-bottom: 50px;
-                                        list-style: none;
-                                        display: flex;
-                                        flex-direction: row;
-                                        justify-content: space-evenly;
-                                    }
+                                           :root {
+                                              --fondo: #132225;
+                                              --celesteclaro: #a6f5d8;
+                                              --celestemedio: #3a7875;
+                                              --celesteoscuro: #14555b;
+                                              --cafeoscuro: #3e3023;
+                                              --cafe: #564624;
+                                              --dorado: #ae914b;
+                                              --doradoclaro: #f4de93;
+                                          }
+                                          
+                                          @font-face {
+                                              font-family: 'Beaufort Extended';
+                                              src: url(./FontsFree-Net-hgsggf.ttf) format('truetype');
+                                              font-style: normal;
+                                              font-weight: normal;
+                                          }
+                                          
+                                          footer {
+                                              color: var(--celesteclaro);
+                                              font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                              font-style: italic;
+                                              font-size: small;
+                                              text-align: center;
+                                              padding: 1rem;
+                                          }
+                                          
+                                          body {
+                                              background-color: var(--fondo);
+                                              margin: 0;
+                                              color: var(--dorado);
+                                          }
+                                          
+                                          header img {
+                                              display: block;
+                                              margin: auto;
+                                              padding: 1rem;
+                                          }
+                                          
+                                          .contn {
+                                              padding: 1.5rem;
+                                              background-color: var(--celesteoscuro);
+                                              margin-bottom: 1rem;
+                                              margin: 0 auto 0 auto;
+                                              display: flex;
+                                              flex-direction: column;
+                                              padding: 1rem;
+                                          }
+                                          
+                                          .filtros {
+                                              display: flex;
+                                              flex-direction: row-reverse;
+                                              justify-content: space-evenly;
+                                              margin-top: 1rem;
+                                          }
+                                          
+                                          @media (max-width: 768px) {
+                                              .contn .filtros {
+                                                  justify-content: space-evenly;
+                                                  width: auto;
+                                                  align-items: center;
+                                                  -webkit-flex-wrap: wrap;
+                                                  flex-wrap: wrap-reverse;
+                                                  margin-top: 1rem;
+                                                  margin-bottom: 1rem;
+                                              }
+                                          }
+                                          
+                                          @media (max-width: 768px) {
+                                              .contn {
+                                                  margin: 0 auto;
+                                              }
+                                          }
+                                          
+                                          #buscar {
+                                              appearance: none;
+                                              border: 0px;
+                                              border-radius: 0.5rem;
+                                              padding: 0.5rem;
+                                              background-color: var(--celestemedio);
+                                              color: var(--doradoclaro);
+                                              margin-bottom: 1rem;
+                                          }
+                                          
+                                           ::placeholder {
+                                              /*Cambiar las propiedades del texto que aparece dentro de buscar*/
+                                              color: var(--doradoclaro);
+                                              opacity: 50%;
+                                          }
+                                          
+                                          select {
+                                              appearance: none;
+                                              -webkit-appearance: none;
+                                              -moz-appearance: none;
+                                              padding: 0.5rem;
+                                              cursor: pointer;
+                                              width: 10rem;
+                                              background-color: var(--celestemedio);
+                                              color: var(--doradoclaro);
+                                              border-radius: 0.5rem;
+                                              -webkit-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.34);
+                                              -moz-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.34);
+                                              box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.34);
+                                              border: 0px;
+                                              margin-bottom: 0.5rem;
+                                          }
+                                          
+                                          select::after {
+                                              content: '\25BC';
+                                              position: absolute;
+                                              top: 1;
+                                              right: 1;
+                                              padding: 1rem;
+                                              background: #2b2e2e;
+                                              cursor: pointer;
+                                              pointer-events: none;
+                                              transition: .25s all ease;
+                                          }
+                                          
+                                          .contenedorCampeones {
+                                              width: 90%;
+                                              display: flex;
+                                              flex-direction: row;
+                                              border: 0.8rem solid black;
+                                              margin-left: 4rem;
+                                              margin-right: 1rem;
+                                              align-content: flex-start;
+                                              justify-content: center;
+                                              flex-wrap: wrap;
+                                              padding: 1rem;
+                                              margin-top: 1rem;
+                                          }
+                                          
+                                          .lolfront {
+                                              display: flex;
+                                              flex-direction: column;
+                                              justify-content: space-between;
+                                              align-items: center;
+                                              background-color: #f1f1f1;
+                                              width: 20%;
+                                              margin: 10px;
+                                              padding-top: 1.5rem;
+                                              padding-right: 0;
+                                              padding-bottom: 6rem;
+                                              padding-left: 0;
+                                              text-align: center;
+                                              cursor: pointer;
+                                              font-size: 20px;
+                                              border: 0.5rem solid black;
+                                          }
+                                          
+                                          .lolfront.id {
+                                              visibility: visible;
+                                          }
+                                          
+                                          .lolfront h2 {
+                                              text-align: justify;
+                                              padding: 1rem;
+                                              font-size: small;
+                                          }
+                                          
+                                          .lolfront h1 {
+                                              align-items: center;
+                                          }
+                                          
+                                          .lolfront img {
+                                              width: 5rem;
+                                              align-items: center;
+                                          }
+                                          
+                                          .lolback {
+                                              width: 90%;
+                                              display: flex;
+                                              margin-top: 0.8rem;
+                                              justify-content: space-around;
+                                              flex-wrap: wrap;
+                                              border: 0.8rem solid black;
+                                              align-items: center;
+                                              margin-left: 4rem;
+                                              margin-right: 1rem;
+                                              visibility: hidden;
+                                          }
+                                          
+                                          .lolback h1 {
+                                              text-align: justify;
+                                              padding: 1rem;
+                                              font-size: small;
+                                          }
+                                          
+                                          #paginacion {
+                                              width: 90%;
+                                              margin-left: auto;
+                                              margin-right: auto;
+                                              margin-bottom: 50px;
+                                              list-style: none;
+                                              display: flex;
+                                              flex-direction: row;
+                                              justify-content: space-evenly;
+                                          }

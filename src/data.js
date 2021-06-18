@@ -2,170 +2,166 @@ import dataLOL from './data/lol/lol.js';
 
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
 
-
-//Ciclo para recorrer la data e ir mostrando los personajes
-for (let i = 0; i < dataLolAsArray.length; i++) {
-
-    //Creo un div section para el html dinamico
-    const lolfront = document.createElement("section");
-
-    contenedorCampeones.appendChild(lolfront); //Le doy un padre
-
-    //Le asigno una id y una class
-    lolfront.id = "lolfront" + dataLolAsArray[i].id;
-    lolfront.className = "lolfront";
-    document.getElementById(lolfront.id).style.visibility = "visible";
+//const arrayEasy = dataLOL.filter(champion => champion.difficulty >= 1 && champion.difficulty <= 3);
 
 
-    //Creo un elemento img para mostrar las imagenes
-    const lolimg = document.createElement("img");
-    lolimg.className = "lolimg";
-    lolimg.src = dataLolAsArray[i].img;
+function crearCartas(cantPaginas, numPagina) {
+
+    let cicloActual = (cantPaginas * numPagina) - cantPaginas;
+
+    //Ciclo para recorrer la data e ir mostrando los personajes
+    for (let i = 0; i < cantPaginas; i++) {
+
+        let ch = i + cicloActual;
+        //Creo un div section para el html dinamico
+        const lolfront = document.createElement("section");
+
+        contenedorCampeones.appendChild(lolfront); //Le doy un padre
+
+        //Le asigno una id y una class
+        lolfront.id = "lolfront" + dataLolAsArray[ch].id;
+        lolfront.className = "lolfront";
+        document.getElementById(lolfront.id).style.visibility = "visible";
 
 
-    //Creo elementos y le indico lo que debe ir mostrando cada uno
-    const lolid = document.createElement("h1");
-    lolid.textContent = dataLolAsArray[i].id;
-
-    const loltitle = document.createElement("h2");
-    loltitle.textContent = dataLolAsArray[i].title
+        //Creo un elemento img para mostrar las imagenes
+        const lolimg = document.createElement("img");
+        lolimg.className = "lolimg";
+        lolimg.src = dataLolAsArray[ch].img;
 
 
-    const lolblurb = document.createElement("h2");
-    lolblurb.textContent = dataLolAsArray[i].blurb;
+        //Creo elementos y le indico lo que debe ir mostrando cada uno
+        const lolid = document.createElement("h1");
+        lolid.textContent = dataLolAsArray[ch].id;
+
+        const loltitle = document.createElement("h2");
+        loltitle.textContent = dataLolAsArray[ch].title
 
 
-    //Le doy un padre a todos los elementos creados
-    lolfront.appendChild(lolimg);
-    lolfront.appendChild(lolid);
-    lolfront.appendChild(loltitle);
-    lolfront.appendChild(lolblurb);
+        const lolblurb = document.createElement("h2");
+        lolblurb.textContent = dataLolAsArray[ch].blurb;
 
 
-    // Parte de atrás
-    const lolback = document.createElement("section");
-
-    lolfront.appendChild(lolback); // Le doy un padre
-
-    lolback.id = "lolback" + dataLolAsArray[i].id;
-    lolback.className = "lolback";
-    document.getElementById(lolback.id).style.visibility = "hidden";
-
-    //Creo los elementos que mostrará
-    const loltags = document.createElement("h1");
-    loltags.textContent = dataLolAsArray[i].tags;
-
-    const lolattack = document.createElement("h1");
-    lolattack.textContent = dataLolAsArray[i].info.attack;
-
-    const loldefense = document.createElement("h1");
-    loldefense.textContent = dataLolAsArray[i].info.defense;
-
-    const lolmagic = document.createElement("h1");
-    lolmagic.textContent = dataLolAsArray[i].info.magic;
-
-    const loldificultad = document.createElement("h1");
-    loldificultad.textContent = dataLolAsArray[i].info.difficulty;
+        //Le doy un padre a todos los elementos creados
+        lolfront.appendChild(lolimg);
+        lolfront.appendChild(lolid);
+        lolfront.appendChild(loltitle);
+        lolfront.appendChild(lolblurb);
 
 
-    //Les doy un padre
-    lolback.appendChild(loltags);
-    lolback.appendChild(lolattack);
-    lolback.appendChild(loldefense);
-    lolback.appendChild(lolmagic);
-    lolback.appendChild(loldificultad);
+        // Parte de atrás
+        const lolback = document.createElement("section");
+
+        lolfront.appendChild(lolback); // Le doy un padre
+
+        lolback.id = "lolback" + dataLolAsArray[ch].id;
+        lolback.className = "lolback";
+        document.getElementById(lolback.id).style.visibility = "hidden";
+
+        //Creo los elementos que mostrará
+        const loltags = document.createElement("h1");
+        loltags.textContent = dataLolAsArray[ch].tags;
+
+        const lolattack = document.createElement("h1");
+        lolattack.textContent = dataLolAsArray[ch].info.attack;
+
+        const loldefense = document.createElement("h1");
+        loldefense.textContent = dataLolAsArray[ch].info.defense;
+
+        const lolmagic = document.createElement("h1");
+        lolmagic.textContent = dataLolAsArray[ch].info.magic;
+
+        const loldificultad = document.createElement("h1");
+        loldificultad.textContent = dataLolAsArray[ch].info.difficulty;
 
 
-    //Mostrar y ocultar la info de las carta
-    lolfront.addEventListener("click", () => {
-        let visiblefront = document.getElementById(lolfront.id).style.visibility;
-        let visibleback = document.getElementById(lolback.id).style.visibility;
-        if (visiblefront == "visible" && visibleback == "hidden") {
-            document.getElementById(lolfront.id).style.visibility = "hidden";
-            document.getElementById(lolback.id).style.visibility = "visible";
-        } else {
-            document.getElementById(lolfront.id).style.visibility = "visible";
-            document.getElementById(lolback.id).style.visibility = "hidden";
-
-        }
-
-    })
+        //Les doy un padre
+        lolback.appendChild(loltags);
+        lolback.appendChild(lolattack);
+        lolback.appendChild(loldefense);
+        lolback.appendChild(lolmagic);
+        lolback.appendChild(loldificultad);
 
 
-
-    //Paginacion
-    /*
-        const paginaactual = 1;
-        const lolporpagina = 8;
-        const atras = document.getElementById("atras");
-        const siguiente = document.getElementById("siguiente");
-
-        const datalol = dataLolAsArray[i].id;
-
-        if (atras) {
-            atras.addEventListener("click", () => { b_atras() })
-
-            function b_atras() {
-                if (paginaactual > 1) {
-                    paginaactual--;
-                    changePage(paginaactual);
-                }
-            }
-        }
-
-        if (siguiente) {
-            siguiente.addEventListener("click", () => { b_siguiente() })
-
-            function b_siguiente() {
-                if (paginaactual < numPages()) {
-                    paginaactual++;
-                    changePage(pagina);
-                }
-            }
-        }
-
-
-        function changePage(page) {
-            let botonsiguiente = document.getElementById("botonsiguiente");
-            let botonatras = document.getElementById("botonatras");
-            let paginacion = document.getElementById("paginacion");
-            let pagina = document.getElementById("page");
-
-            // Validate page
-            if (page < 1) page = 1;
-            if (page > numPages()) page = numPages();
-
-            paginacion.innerHTML = "";
-
-            for (let n = (page - 1) * lolporpagina; n < (page * lolporpagina); n++) {
-                paginacion.innerHTML += datalol + "<br>";
-            }
-            pagina.innerHTML = page;
-
-            if (page == 1) {
-                botonatras.style.visibility = "hidden";
+        //Mostrar y ocultar la info de las carta
+        lolfront.addEventListener("click", () => {
+            let visiblefront = document.getElementById(lolfront.id).style.visibility;
+            let visibleback = document.getElementById(lolback.id).style.visibility;
+            if (visiblefront == "visible" && visibleback == "hidden") {
+                document.getElementById(lolfront.id).style.visibility = "hidden";
+                document.getElementById(lolback.id).style.visibility = "visible";
             } else {
-                botonsiguiente.style.visibility = "visible";
+                document.getElementById(lolfront.id).style.visibility = "visible";
+                document.getElementById(lolback.id).style.visibility = "hidden";
+
             }
 
-            if (page == numPages()) {
-                botonsiguiente.style.visibility = "hidden";
-            } else {
-                botonsiguiente.style.visibility = "visible";
-            }
-        }
+        })
 
-        function numPages() {
-            return Math.ceil(datalol.length / lolporpagina);
-        }
-
-        window.onload = function() {
-            changePage(1);
-        };*/
+    }
 };
 
 
 
+//Paginacion
+
+let paginaactual = 1;
+const lolporpagina = 8;
+let pagina = document.getElementById("page");
+
+if (botonatras) {
+    botonatras.addEventListener("click", () => { b_atras() })
+
+    function b_atras() {
+        if (paginaactual > 1) {
+            paginaactual--;
+            changePage(paginaactual);
+        }
+    }
+}
+
+if (botonsiguiente) {
+
+    botonsiguiente.addEventListener("click", () => { b_siguiente() })
+
+    function b_siguiente() {
+        if (paginaactual < numPages()) {
+            paginaactual++;
+            changePage(paginaactual);
+        }
+    }
+}
+
+function changePage(page) {
+    let botonsiguiente = document.getElementById("botonsiguiente");
+    let botonatras = document.getElementById("botonatras");
+
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+    contenedorCampeones.innerHTML = "";
+
+    crearCartas(lolporpagina, page); // SE ACTIVA LA FUNCION CREAR CARTAS AL CARGAR LA WEB Y AL APRETAR LOS BOTONES
+
+    pagina.innerHTML = page + "/" + numPages();
+
+    if (page == 1) {
+        botonatras.style.visibility = "hidden";
+    } else { botonatras.style.visibility = "visible"; }
+    if (page == numPages()) {
+        botonsiguiente.style.visibility = "hidden";
+    } else {
+        botonsiguiente.style.visibility = "visible";
+
+    }
+}
+
+function numPages() {
+    return Math.ceil(dataLolAsArray.length / lolporpagina);
+}
+
+window.onload = function() {
+    changePage(1);
+}
 
 
 
@@ -184,31 +180,11 @@ for (let i = 0; i < dataLolAsArray.length; i++) {
 
 
 
-/*const fragment = document.createDocumentFragment() //Guarda toda la estructura en un fragment
-
-dataLolAsArray.forEach(champion => {
-    const nuevodiv = document.createElement("div");
-    nuevodiv.classList.add("list")
-
-
-
-})
-contenedorCampeones.appendChild(fragment);*/
 
 
 
 
 
-// aqui transformo la data que viene como objeto en arreglo
-//let dataLolAsArray = Object.values(dataLOL.data);
-//aqui agrego for each para recorrer la data
-/*dataLolAsArray.forEach(champion => {
-        let divnuevo = document.createElement("div");
-        divnuevo.id = "" + champion.id;
-        divnuevo.classList.add("contenedor2");
-        contenedorCampeones.innerHTML += 
-
-    }) //aqui creo la card y la inserto en el contenedor padre */
 
 
 

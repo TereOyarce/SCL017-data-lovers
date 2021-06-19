@@ -1,6 +1,6 @@
 import dataLOL from './data/lol/lol.js';
 
-const contenedorCampeones = document.getElementById("contenedorCampeones");
+
 let valorPaginaActual = 1;
 
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
@@ -136,17 +136,17 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
 const buscarCampeon = document.getElementById("buscar")
 buscarCampeon.addEventListener("keyup", (event) => {
     contenedorCampeones.innerHTML = ""
-    // Aqui extraemos el valor ingresado por el usuario
+        // Aqui extraemos el valor ingresado por el usuario
     const nombreCampeon = event.target.value
-    /**
-     *paso1: creo variable filterDataLol 
-     paso2: Usamos la data completa de los campeones y usamos el metodo filter
-     paso3: Dentro de la condicion del filter usamos el objeto campeon y su atributo name
-     paso4: al atributo del  campeon(name) le aplicamos la funcion includes.
-            Esta funcion nos ayuda a comparar con el atributo name si hay coincidencias de busqueda entregando un valor booleano.
-     * 
-     * 
-     */
+        /**
+         *paso1: creo variable filterDataLol 
+         paso2: Usamos la data completa de los campeones y usamos el metodo filter
+         paso3: Dentro de la condicion del filter usamos el objeto campeon y su atributo name
+         paso4: al atributo del  campeon(name) le aplicamos la funcion includes.
+                Esta funcion nos ayuda a comparar con el atributo name si hay coincidencias de busqueda entregando un valor booleano.
+         * 
+         * 
+         */
     const filterDataLol = dataLolAsArray.filter(campeon => campeon.name.toLowerCase().includes(nombreCampeon.toLowerCase()))
     crearCartas(8, valorPaginaActual, filterDataLol);
 });
@@ -210,7 +210,7 @@ function numPages() {
     return Math.ceil(dataLolAsArray.length / lolporpagina);
 }
 
-window.onload = function () {
+window.onload = function() {
     changePage(1);
 }
 
@@ -218,11 +218,11 @@ window.onload = function () {
 const ordenCampeones = document.getElementById("AZA")
 ordenCampeones.addEventListener("change", (event) => {
     contenedorCampeones.innerHTML = ""
-    // Aqui extraemos el valor ingresado por el usuario
-    // 0 y 1: Orden ascendente --> A a Z
-    // 2: Orden Descendente --> Z a A
+        // Aqui extraemos el valor ingresado por el usuario
+        // 0 y 1: Orden ascendente --> A a Z
+        // 2: Orden Descendente --> Z a A
     const tipoOrden = Number(event.target.value)
-    dataLolAsArray.sort(function (a, b) {
+    dataLolAsArray.sort(function(a, b) {
         // Este IF te da el orden ASCENDENTE
         // y el ELSE te da el orden DESCENDENTE
         if (tipoOrden == 0 || tipoOrden == 1) {

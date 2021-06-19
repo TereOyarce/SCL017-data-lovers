@@ -1,11 +1,11 @@
 import dataLOL from './data/lol/lol.js';
 
+const contenedorCampeones = document.getElementById("contenedorCampeones");
+let valorPaginaActual = 1;
+
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
 
-//const arrayEasy = dataLOL.filter(champion => champion.difficulty >= 1 && champion.difficulty <= 3);
-
-
-function crearCartas(cantPaginas, numPagina) {
+function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
 
     let cicloActual = (cantPaginas * numPagina) - cantPaginas;
 
@@ -94,8 +94,6 @@ function crearCartas(cantPaginas, numPagina) {
         const difficultyimg = document.createElement("img");
         difficultyimg.src = "../src/images/icon-difficulty.png";
 
-
-        //Les doy un padre
         lolback.appendChild(loltags);
         lolback.appendChild(contattack);
         lolback.appendChild(contdefense);
@@ -130,11 +128,28 @@ function crearCartas(cantPaginas, numPagina) {
             }
 
         })
-
     }
 };
 
+//Aqui esta la funcionalidad de filtrar campeones
 
+const buscarCampeon = document.getElementById("buscar")
+buscarCampeon.addEventListener("keyup", (event) => {
+    contenedorCampeones.innerHTML = ""
+    // Aqui extraemos el valor ingresado por el usuario
+    const nombreCampeon = event.target.value
+    /**
+     *paso1: creo variable filterDataLol 
+     paso2: Usamos la data completa de los campeones y usamos el metodo filter
+     paso3: Dentro de la condicion del filter usamos el objeto campeon y su atributo name
+     paso4: al atributo del  campeon(name) le aplicamos la funcion includes.
+            Esta funcion nos ayuda a comparar con el atributo name si hay coincidencias de busqueda entregando un valor booleano.
+     * 
+     * 
+     */
+    const filterDataLol = dataLolAsArray.filter(campeon => campeon.name.toLowerCase().includes(nombreCampeon.toLowerCase()))
+    crearCartas(8, valorPaginaActual, filterDataLol);
+});
 
 //Paginacion
 
@@ -175,8 +190,8 @@ function changePage(page) {
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
     contenedorCampeones.innerHTML = "";
-
-    crearCartas(lolporpagina, page); // SE ACTIVA LA FUNCION CREAR CARTAS AL CARGAR LA WEB Y AL APRETAR LOS BOTONES
+    valorPaginaActual = page;
+    crearCartas(lolporpagina, page, dataLolAsArray); // SE ACTIVA LA FUNCION CREAR CARTAS AL CARGAR LA WEB Y AL APRETAR LOS BOTONES
 
     pagina.innerHTML = page + "/" + numPages();
 
@@ -195,45 +210,85 @@ function numPages() {
     return Math.ceil(dataLolAsArray.length / lolporpagina);
 }
 
-window.onload = function() {
+window.onload = function () {
     changePage(1);
 }
 
+//Aqui esta la funcionalidad de ordenar campeones
+const ordenCampeones = document.getElementById("AZA")
+ordenCampeones.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = ""
+    // Aqui extraemos el valor ingresado por el usuario
+    // 0 y 1: Orden ascendente --> A a Z
+    // 2: Orden Descendente --> Z a A
+    const tipoOrden = Number(event.target.value)
+    dataLolAsArray.sort(function (a, b) {
+        // Este IF te da el orden ASCENDENTE
+        // y el ELSE te da el orden DESCENDENTE
+        if (tipoOrden == 0 || tipoOrden == 1) {
+            if (a.name > b.name) {
+                return 1;
+            }
+            if (a.name < b.name) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        } else {
+            // tipoOrden == 2
+            if (a.name < b.name) {
+                return 1;
+            }
+            if (a.name > b.name) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        }
+    });
+    crearCartas(8, valorPaginaActual, dataLolAsArray);
+});
 
 
+//Aqui esta la funcionalidad de ordenar campeones
+const filtrarPorTipo = document.getElementById("tipo")
+filtrarPorTipo.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = ""
+    const tipoCampeon = String(event.target.value)
+    if (tipoCampeon == "0") {
+        crearCartas(8, valorPaginaActual, dataLolAsArray);
+    } else {
+        const filterPorTipoLol = dataLolAsArray.filter(campeon => campeon.tags.includes(tipoCampeon))
+        crearCartas(8, valorPaginaActual, filterPorTipoLol);
+    }
+});
 
+//Aqui esta la funcionalidad de ordenar campeones
+function filtrarPorRango(valorInicial, valorFinal) {
+    return dataLolAsArray.filter(campeon => campeon.info.difficulty >= valorInicial && campeon.info.difficulty <= valorFinal)
+}
 
+const filtrarPorDificultad = document.getElementById("difficulty")
+filtrarPorDificultad.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = ""
+    const dificultadCampeon = String(event.target.value)
+    let filterPorDificultadLol = [];
+    switch (dificultadCampeon) {
+        case "Easy":
+            filterPorDificultadLol = filtrarPorRango(1, 3);
+            crearCartas(8, valorPaginaActual, filterPorDificultadLol);
+            break;
+        case "Medium":
+            filterPorDificultadLol = filtrarPorRango(4, 7);
+            crearCartas(8, valorPaginaActual, filterPorDificultadLol);
+            break;
+        case "Hard":
+            filterPorDificultadLol = filtrarPorRango(8, 10);
+            crearCartas(8, valorPaginaActual, filterPorDificultadLol);
+            break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export const example = () => {
-    return 'example';
-};
-
-export const anotherExample = () => {
-    return 'OMG';
-};
-
-/*dataLolAsArray.forEach(champion => {
-    contenedorCampeones.innerHTML += '<div id="contenedor-' + champion.id + '" class="contenedor-campeones"><img src="' + champion.img + '" width="100px"><p>' + champion.name + '</p><p style="text-align: justify;padding:15px;">' + champion.blurb + '</p></div>';
-}) //aqui creo la card y la inserto en el contenedor padre */
+        default:
+            crearCartas(8, valorPaginaActual, dataLolAsArray);
+            break;
+    }
+});

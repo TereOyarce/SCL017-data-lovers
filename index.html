@@ -19,28 +19,26 @@
     </header>
     <!--Contenedor-->
     <div class="contn">
-        <input type="text" name="buscar" id="buscar" autocomplete="off" placeholder="Buscar Campeón">
-
         <nav class="filtros">
 
             <!--Filtro orden alfabetico-->
             <section class="abc">
-                <select name="AZA">
-                    <option selected value="0">Ordenar A-Z,Z-A</option>
+                <select id="AZA">
+                    <option selected value="0">Seleccione orden</option>
                     <option value="1" id="AZ">A-Z</option>
                     <option value="2" id="ZA">Z-A</option>
                 </select>
             </section>
             <!--Filtro Tipo-->
             <section class="tipos">
-                <select name="tipo">
+                <select id="tipo">
                     <option selected value="0">Tipo</option>
-                    <option value="1" id="fighter">Fighter</option>
-                    <option value="2" id="tank">Tank</option>
-                    <option value="3" id="mage">Mage</option>
-                    <option value="4" id="assasin">Assasin</option>
-                    <option value="5" id="support">Support</option>
-                    <option value="6" id="marksman">Marksman</option>
+                    <option value="Fighter">Fighter</option>
+                    <option value="Tank">Tank</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Assassin">Assasin</option>
+                    <option value="Support">Support</option>
+                    <option value="Marksman">Marksman</option>
                 </select>
             </section>
             <!--Filtro Stats-->
@@ -54,16 +52,16 @@
             </section>
             <!--Filtro dificultad-->
             <section class="dificultad">
-                <select name="difficulty">
+                <select id="difficulty">
                     <option selected value="0">Difficulty</option>
-                    <option value="1" id="easy">Easy</option>
-                    <option value="2" id="medium">Medium</option>
-                    <option value="3" id="hard">Hard</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
                 </select>
             </section>
-            <form action="" onsubmit="buscarlol(event)">
-                <input type="text" name="buscar" id="buscar" placeholder="Buscar..." autocomplete="off">
-            </form>
+
+            <input type="text" name="buscar" id="buscar" autocomplete="off" placeholder="Buscar Campeón">
+
         </nav>
     </div>
     <!--Termino Contenedor-->

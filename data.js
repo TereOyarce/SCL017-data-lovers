@@ -1,140 +1,25 @@
 import dataLOL from './data/lol/lol.js';
 
-//import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
-
-
 const contenedorCampeones = document.getElementById("contenedorCampeones");
+let valorPaginaActual = 1;
 
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
 
+function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
 
-//Ciclo para recorrer la data e ir mostrando los personajes
-for (let i = 0; i < dataLolAsArray.length; i++) {
-
-    //Creo un div section para el html dinamico
-    const lolfront = document.createElement("section");
-
-    contenedorCampeones.appendChild(lolfront); //Le doy un padre
-
-    //Le asigno una id y una class
-    lolfront.id = "lolfront" + dataLolAsArray[i].id;
-    lolfront.className = "lolfront";
-    document.getElementById(lolfront.id).style.visibility = "visible";
-
-
-    //Creo un elemento img para mostrar las imagenes
-    const lolimg = document.createElement("img");
-    lolimg.className = "lolimg";
-    lolimg.src = dataLolAsArray[i].img;
-
-
-    //Creo elementos y le indico lo que debe ir mostrando cada uno
-    const lolid = document.createElement("h1");
-    lolid.textContent = dataLolAsArray[i].id;
-
-    const loltitle = document.createElement("h2");
-    loltitle.textContent = dataLolAsArray[i].title
-
-
-    const lolblurb = document.createElement("h2");
-    lolblurb.textContent = dataLolAsArray[i].blurb;
-
-
-    //Le doy un padre a todos los elementos creados
-    lolfront.appendChild(lolimg);
-    lolfront.appendChild(lolid);
-    lolfront.appendChild(loltitle);
-    lolfront.appendChild(lolblurb);
-
-
-    // Parte de atrás
-    const lolback = document.createElement("section");
-
-    lolfront.appendChild(lolback); // Le doy un padre
-
-    lolback.id = "lolback" + dataLolAsArray[i].id;
-    lolback.className = "lolback";
-    document.getElementById(lolback.id).style.visibility = "hidden";
-
-    //Creo los elementos que mostrará
-    const loltags = document.createElement("h1");
-    loltags.textContent = dataLolAsArray[i].tags;
-
-    const lolattack = document.createElement("h1");
-    lolattack.textContent = dataLolAsArray[i].info.attack;
-
-    const loldefense = document.createElement("h1");
-    loldefense.textContent = dataLolAsArray[i].info.defense;
-
-    const lolmagic = document.createElement("h1");
-    lolmagic.textContent = dataLolAsArray[i].info.magic;
-
-    const loldificultad = document.createElement("h1");
-    loldificultad.textContent = dataLolAsArray[i].info.difficulty;
-
-
-    //Les doy un padre
-    lolback.appendChild(loltags);
-    lolback.appendChild(lolattack);
-    lolback.appendChild(loldefense);
-    lolback.appendChild(lolmagic);
-    lolback.appendChild(loldificultad);
-
-
-    //Mostrar y ocultar la info de las carta
-    lolfront.addEventListener("click", () => {
-        let visiblefront = document.getElementById(lolfront.id).style.visibility;
-        let visibleback = document.getElementById(lolback.id).style.visibility;
-        if (visiblefront == "visible" && visibleback == "hidden") {
-            document.getElementById(lolfront.id).style.visibility = "hidden";
-            document.getElementById(lolback.id).style.visibility = "visible";
-        } else {
-            document.getElementById(lolfront.id).style.visibility = "visible";
-            document.getElementById(lolback.id).style.visibility = "hidden";
-
-        }
-
-    })
-
-};
-
-//Aqui esta la funcionalidad de filtrar campeones
-const buscarCampeon = document.getElementById("buscar")
-
-/*Aqui se agrega evento de detectar cada tecla ingresada al imput.
-Al addEventlistener se le manda como parametro de entrada un valor asociado al evento*/
-buscarCampeon.addEventListener("keyup", (event) => {
-    /*Aqui limpio el contenedor y borro las card.Esto se hace porque 
-    se va a mostrarnueva data filtrada*/
-    contenedorCampeones.innerHTML = ""
-
-    console.log(event.key)
-    console.log(event.target.value)
-
-    // Aqui extraemos el valor ingresado por el usuario
-    const nombreCampeon = event.target.value
-    /**
-     *paso1: creo variable filterDataLol 
-     paso2: Usamos la data completa de los campeones y usamos el metodo filter
-     paso3: Dentro de la condicion del filter usamos el objeto campeon y su atributo name
-     paso4: al atributo del  campeon(name) le aplicamos la funcion includes.
-            Esta funcion nos ayuda a comparar con el atributo name si hay coincidencias de busqueda entregando un valor booleano.
-     * 
-     * 
-     */
-    const filterDataLol = dataLolAsArray.filter(campeon => campeon.name.includes(nombreCampeon))
+    let cicloActual = (cantPaginas * numPagina) - cantPaginas;
 
     //Ciclo para recorrer la data e ir mostrando los personajes
-    for (let i = 0; i < filterDataLol.length; i++) {
+    for (let i = 0; i < cantPaginas; i++) {
 
+        let ch = i + cicloActual;
         //Creo un div section para el html dinamico
         const lolfront = document.createElement("section");
 
         contenedorCampeones.appendChild(lolfront); //Le doy un padre
 
         //Le asigno una id y una class
-        lolfront.id = "lolfront" + filterDataLol[i].id;
+        lolfront.id = "lolfront" + dataLolAsArray[ch].id;
         lolfront.className = "lolfront";
         document.getElementById(lolfront.id).style.visibility = "visible";
 
@@ -142,19 +27,19 @@ buscarCampeon.addEventListener("keyup", (event) => {
         //Creo un elemento img para mostrar las imagenes
         const lolimg = document.createElement("img");
         lolimg.className = "lolimg";
-        lolimg.src = filterDataLol[i].img;
+        lolimg.src = dataLolAsArray[ch].img;
 
 
         //Creo elementos y le indico lo que debe ir mostrando cada uno
         const lolid = document.createElement("h1");
-        lolid.textContent = filterDataLol[i].id;
+        lolid.textContent = dataLolAsArray[ch].id;
 
         const loltitle = document.createElement("h2");
-        loltitle.textContent = filterDataLol[i].title
+        loltitle.textContent = dataLolAsArray[ch].title
 
 
         const lolblurb = document.createElement("h2");
-        lolblurb.textContent = filterDataLol[i].blurb;
+        lolblurb.textContent = dataLolAsArray[ch].blurb;
 
 
         //Le doy un padre a todos los elementos creados
@@ -169,28 +54,26 @@ buscarCampeon.addEventListener("keyup", (event) => {
 
         lolfront.appendChild(lolback); // Le doy un padre
 
-        lolback.id = "lolback" + filterDataLol[i].id;
+        lolback.id = "lolback" + dataLolAsArray[ch].id;
         lolback.className = "lolback";
         document.getElementById(lolback.id).style.visibility = "hidden";
 
         //Creo los elementos que mostrará
         const loltags = document.createElement("h1");
-        loltags.textContent = filterDataLol[i].tags;
+        loltags.textContent = dataLolAsArray[ch].tags;
 
         const lolattack = document.createElement("h1");
-        lolattack.textContent = filterDataLol[i].info.attack;
+        lolattack.textContent = dataLolAsArray[ch].info.attack;
 
         const loldefense = document.createElement("h1");
-        loldefense.textContent = filterDataLol[i].info.defense;
+        loldefense.textContent = dataLolAsArray[ch].info.defense;
 
         const lolmagic = document.createElement("h1");
-        lolmagic.textContent = filterDataLol[i].info.magic;
+        lolmagic.textContent = dataLolAsArray[ch].info.magic;
 
         const loldificultad = document.createElement("h1");
-        loldificultad.textContent = filterDataLol[i].info.difficulty;
+        loldificultad.textContent = dataLolAsArray[ch].info.difficulty;
 
-
-        //Les doy un padre
         lolback.appendChild(loltags);
         lolback.appendChild(lolattack);
         lolback.appendChild(loldefense);
@@ -212,14 +95,164 @@ buscarCampeon.addEventListener("keyup", (event) => {
             }
 
         })
-
-    };
-})
-
-export const example = () => {
-    return 'example';
+    }
 };
 
-export const anotherExample = () => {
-    return 'OMG';
-};
+//Aqui esta la funcionalidad de filtrar campeones
+
+const buscarCampeon = document.getElementById("buscar")
+buscarCampeon.addEventListener("keyup", (event) => {
+    contenedorCampeones.innerHTML = ""
+    // Aqui extraemos el valor ingresado por el usuario
+    const nombreCampeon = event.target.value
+    /**
+     *paso1: creo variable filterDataLol 
+     paso2: Usamos la data completa de los campeones y usamos el metodo filter
+     paso3: Dentro de la condicion del filter usamos el objeto campeon y su atributo name
+     paso4: al atributo del  campeon(name) le aplicamos la funcion includes.
+            Esta funcion nos ayuda a comparar con el atributo name si hay coincidencias de busqueda entregando un valor booleano.
+     * 
+     * 
+     */
+    const filterDataLol = dataLolAsArray.filter(campeon => campeon.name.toLowerCase().includes(nombreCampeon.toLowerCase()))
+    crearCartas(8, valorPaginaActual, filterDataLol);
+});
+
+//Paginacion
+
+let paginaactual = 1;
+const lolporpagina = 8;
+let pagina = document.getElementById("page");
+
+if (botonatras) {
+    botonatras.addEventListener("click", () => { b_atras() })
+
+    function b_atras() {
+        if (paginaactual > 1) {
+            paginaactual--;
+            changePage(paginaactual);
+        }
+    }
+}
+
+if (botonsiguiente) {
+
+    botonsiguiente.addEventListener("click", () => { b_siguiente() })
+
+    function b_siguiente() {
+        if (paginaactual < numPages()) {
+            paginaactual++;
+            changePage(paginaactual);
+        }
+    }
+}
+
+function changePage(page) {
+    let botonsiguiente = document.getElementById("botonsiguiente");
+    let botonatras = document.getElementById("botonatras");
+
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+    contenedorCampeones.innerHTML = "";
+    valorPaginaActual = page;
+    crearCartas(lolporpagina, page, dataLolAsArray); // SE ACTIVA LA FUNCION CREAR CARTAS AL CARGAR LA WEB Y AL APRETAR LOS BOTONES
+
+    pagina.innerHTML = page + "/" + numPages();
+
+    if (page == 1) {
+        botonatras.style.visibility = "hidden";
+    } else { botonatras.style.visibility = "visible"; }
+    if (page == numPages()) {
+        botonsiguiente.style.visibility = "hidden";
+    } else {
+        botonsiguiente.style.visibility = "visible";
+
+    }
+}
+
+function numPages() {
+    return Math.ceil(dataLolAsArray.length / lolporpagina);
+}
+
+window.onload = function () {
+    changePage(1);
+}
+
+//Aqui esta la funcionalidad de ordenar campeones
+const ordenCampeones = document.getElementById("AZA")
+ordenCampeones.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = ""
+    // Aqui extraemos el valor ingresado por el usuario
+    // 0 y 1: Orden ascendente --> A a Z
+    // 2: Orden Descendente --> Z a A
+    const tipoOrden = Number(event.target.value)
+    dataLolAsArray.sort(function (a, b) {
+        // Este IF te da el orden ASCENDENTE
+        // y el ELSE te da el orden DESCENDENTE
+        if (tipoOrden == 0 || tipoOrden == 1) {
+            if (a.name > b.name) {
+                return 1;
+            }
+            if (a.name < b.name) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        } else {
+            // tipoOrden == 2
+            if (a.name < b.name) {
+                return 1;
+            }
+            if (a.name > b.name) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        }
+    });
+    crearCartas(8, valorPaginaActual, dataLolAsArray);
+});
+
+
+//Aqui esta la funcionalidad de ordenar campeones
+const filtrarPorTipo = document.getElementById("tipo")
+filtrarPorTipo.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = ""
+    const tipoCampeon = String(event.target.value)
+    if (tipoCampeon == "0") {
+        crearCartas(8, valorPaginaActual, dataLolAsArray);
+    } else {
+        const filterPorTipoLol = dataLolAsArray.filter(campeon => campeon.tags.includes(tipoCampeon))
+        crearCartas(8, valorPaginaActual, filterPorTipoLol);
+    }
+});
+
+//Aqui esta la funcionalidad de ordenar campeones
+function filtrarPorRango(valorInicial, valorFinal) {
+    return dataLolAsArray.filter(campeon => campeon.info.difficulty >= valorInicial && campeon.info.difficulty <= valorFinal)
+}
+
+const filtrarPorDificultad = document.getElementById("difficulty")
+filtrarPorDificultad.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = ""
+    const dificultadCampeon = String(event.target.value)
+    let filterPorDificultadLol = [];
+    switch (dificultadCampeon) {
+        case "Easy":
+            filterPorDificultadLol = filtrarPorRango(1, 3);
+            crearCartas(8, valorPaginaActual, filterPorDificultadLol);
+            break;
+        case "Medium":
+            filterPorDificultadLol = filtrarPorRango(4, 7);
+            crearCartas(8, valorPaginaActual, filterPorDificultadLol);
+            break;
+        case "Hard":
+            filterPorDificultadLol = filtrarPorRango(8, 10);
+            crearCartas(8, valorPaginaActual, filterPorDificultadLol);
+            break;
+
+        default:
+            crearCartas(8, valorPaginaActual, dataLolAsArray);
+            break;
+    }
+});

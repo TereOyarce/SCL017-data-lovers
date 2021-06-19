@@ -62,25 +62,58 @@ function crearCartas(cantPaginas, numPagina) {
         const loltags = document.createElement("h1");
         loltags.textContent = dataLolAsArray[ch].tags;
 
-        const lolattack = document.createElement("h1");
-        lolattack.textContent = dataLolAsArray[ch].info.attack;
+        //Contenedor Ataque
+        const contattack = document.createElement("section");
+        contattack.className = "atributos";
+        const lolattack = document.createElement("h2");
+        lolattack.textContent = "Attack     " + dataLolAsArray[ch].info.attack;
+        const attackimg = document.createElement("img");
+        attackimg.src = "../src/images/icon-attack.png";
 
-        const loldefense = document.createElement("h1");
-        loldefense.textContent = dataLolAsArray[ch].info.defense;
+        //Contenedor Defensa
+        const contdefense = document.createElement("section");
+        contdefense.className = "atributos";
+        const loldefense = document.createElement("h2");
+        loldefense.textContent = "Defense  " + dataLolAsArray[ch].info.defense;
+        const defenseimg = document.createElement("img");
+        defenseimg.src = "../src/images/icon-defense.png";
 
-        const lolmagic = document.createElement("h1");
-        lolmagic.textContent = dataLolAsArray[ch].info.magic;
+        //Contenedor Magic
+        const contmagic = document.createElement("section");
+        contmagic.className = "atributos";
+        const lolmagic = document.createElement("h2");
+        lolmagic.textContent = "Magic  " + dataLolAsArray[ch].info.magic;
+        const magicimg = document.createElement("img");
+        magicimg.src = "../src/images/icon-magic.png";
 
-        const loldificultad = document.createElement("h1");
-        loldificultad.textContent = dataLolAsArray[ch].info.difficulty;
+        //Contenedor Dificultad
+        const contdifficulty = document.createElement("section");
+        contdifficulty.className = "atributos";
+        const loldifficulty = document.createElement("h2");
+        loldifficulty.textContent = "Difficulty  " + dataLolAsArray[ch].info.difficulty;
+        const difficultyimg = document.createElement("img");
+        difficultyimg.src = "../src/images/icon-difficulty.png";
 
 
         //Les doy un padre
         lolback.appendChild(loltags);
-        lolback.appendChild(lolattack);
-        lolback.appendChild(loldefense);
-        lolback.appendChild(lolmagic);
-        lolback.appendChild(loldificultad);
+        lolback.appendChild(contattack);
+        lolback.appendChild(contdefense);
+        lolback.appendChild(contmagic);
+        lolback.appendChild(contdifficulty);
+
+        //Padre Attack
+        contattack.appendChild(lolattack);
+        contattack.appendChild(attackimg);
+        //Padre Defense
+        contdefense.appendChild(loldefense);
+        contdefense.appendChild(defenseimg);
+        //Padre Magic
+        contmagic.appendChild(lolmagic);
+        contmagic.appendChild(magicimg);
+        //Padre Dificultad
+        contdifficulty.appendChild(loldifficulty);
+        contdifficulty.appendChild(difficultyimg);
 
 
         //Mostrar y ocultar la info de las carta
@@ -109,6 +142,8 @@ let paginaactual = 1;
 const lolporpagina = 8;
 let pagina = document.getElementById("page");
 
+
+
 if (botonatras) {
     botonatras.addEventListener("click", () => { b_atras() })
 
@@ -131,6 +166,7 @@ if (botonsiguiente) {
         }
     }
 }
+
 
 function changePage(page) {
     let botonsiguiente = document.getElementById("botonsiguiente");

@@ -134,7 +134,7 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
 
 //Aqui esta la funcionalidad de filtrar campeones
 
-const buscarCampeon = document.getElementById("buscar")
+const buscarCampeon = document.getElementById("buscar");
 buscarCampeon.addEventListener("keyup", (event) => {
     contenedorCampeones.innerHTML = ""
         // Aqui extraemos el valor ingresado por el usuario
@@ -162,28 +162,28 @@ let botonatras = document.getElementById("botonatras");
 
 
 
-if (botonatras) {
-    botonatras.addEventListener("click", () => { b_atras() })
 
-    function b_atras() {
-        if (paginaactual > 1) {
-            paginaactual--;
-            changePage(paginaactual);
-        }
+botonatras.addEventListener("click", () => { b_atras() })
+
+function b_atras() {
+    if (paginaactual > 1) {
+        paginaactual--;
+        changePage(paginaactual);
     }
 }
 
-if (botonsiguiente) {
 
-    botonsiguiente.addEventListener("click", () => { b_siguiente() })
 
-    function b_siguiente() {
-        if (paginaactual < numPages()) {
-            paginaactual++;
-            changePage(paginaactual);
-        }
+
+botonsiguiente.addEventListener("click", () => { b_siguiente() })
+
+function b_siguiente() {
+    if (paginaactual < numPages()) {
+        paginaactual++;
+        changePage(paginaactual);
     }
 }
+
 
 
 function changePage(page) {

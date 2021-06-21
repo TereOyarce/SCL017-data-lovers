@@ -1,4 +1,4 @@
-import { crearCartas, example, anotherExample } from '../src/data.js';
+import { crearCartas, example, changePage, anotherExample } from '../src/data.js';
 
 
 describe('creaCartas', () => {
@@ -12,9 +12,9 @@ describe('creaCartas', () => {
 });
 
 
-describe('anotherExample', () => {
+describe('changePage', () => {
     it('is a function', () => {
-        expect(typeof anotherExample).toBe('function');
+        expect(typeof changePage).toBe('function');
     });
 
     it('returns `anotherExample`', () => {

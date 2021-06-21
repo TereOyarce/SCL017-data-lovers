@@ -2,6 +2,7 @@ import dataLOL from './data/lol/lol.js';
 
 
 let valorPaginaActual = 1;
+const contenedorCampeones = document.getElementById("contenedorCampeones");
 
 const dataLolAsArray = Object.values(dataLOL.data); //convierto la data en una array
 
@@ -129,7 +130,7 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
 
         })
     }
-};
+}
 
 //Aqui esta la funcionalidad de filtrar campeones
 
@@ -156,6 +157,8 @@ buscarCampeon.addEventListener("keyup", (event) => {
 let paginaactual = 1;
 const lolporpagina = 8;
 let pagina = document.getElementById("page");
+let botonsiguiente = document.getElementById("botonsiguiente");
+let botonatras = document.getElementById("botonatras");
 
 
 
@@ -184,8 +187,7 @@ if (botonsiguiente) {
 
 
 function changePage(page) {
-    let botonsiguiente = document.getElementById("botonsiguiente");
-    let botonatras = document.getElementById("botonatras");
+
 
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();

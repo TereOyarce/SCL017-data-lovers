@@ -162,11 +162,12 @@
       padding-left: 0;
       text-align: center;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 1.25rem;
       border-radius: 0.5rem;
       -webkit-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.37);
       -moz-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.37);
       box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.37);
+      position: relative;
   }
   
   .lolfront.id {
@@ -208,7 +209,7 @@
       padding-left: 0;
       text-align: center;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 1.25rem;
       border-radius: 0.5rem;
       position: absolute;
       -webkit-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.37);

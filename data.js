@@ -265,6 +265,34 @@ filtrarPorTipo.addEventListener("change", (event) => {
     }
 });
 
+//Filtrar po stats 
+const filtrarPorStats = document.getElementById("stats");
+let dataSorteada = dataLolAsArray;
+const dataPorDefecto = JSON.parse(JSON.stringify(dataLolAsArray)); //Object nuevo sin referencia.
+filtrarPorStats.addEventListener("change", (event) => {
+    contenedorCampeones.innerHTML = "";
+    const statsCampeon = String(event.target.value);
+    switch (statsCampeon) {
+        case "attack":
+            let attackCampeon = dataSorteada.sort(function(a, b) { return b.info.attack - a.info.attack });
+            crearCartas(8, valorPaginaActual, attackCampeon);
+            break;
+        case "defense":
+            let defenseCampeon = dataSorteada.sort(function(c, d) { return d.info.defense - c.info.defense });
+            crearCartas(8, valorPaginaActual, defenseCampeon);
+            break;
+        case "magic":
+            let magicCampeon = dataSorteada.sort(function(e, f) { return f.info.magic - e.info.magic });
+            crearCartas(8, valorPaginaActual, magicCampeon);
+            break;
+        default:
+            crearCartas(8, valorPaginaActual, dataPorDefecto);
+            break;
+    }
+});
+
+
+
 //Aqui esta la funcionalidad de ordenar campeones
 function filtrarPorRango(valorInicial, valorFinal) {
     return dataLolAsArray.filter(campeon => campeon.info.difficulty >= valorInicial && campeon.info.difficulty <= valorFinal)

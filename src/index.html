@@ -14,76 +14,78 @@
 </head>
 
 <body>
-    <div id="root"></div>
-    <!-- <script src="main.js" type="module" defer></script> -->
-    <script src="data.js" type="module" defer></script>
+    <div id="root">
+<!-- <script src="main.js" type="module" defer></script> -->
+<script src="data.js" type="module" defer></script>
 
-    <header>
-        <a href="index.html"> <img src="images/lol500x300.png"> </a>
-    </header>
-    <!--Contenedor-->
-    <div class="contn">
-        <nav class="filtros">
+<header>
+    <a href="index.html"> <img src="images/lol500x300.png"> </a>
+</header>
+<!--Contenedor-->
+<div class="contn">
+    <nav class="filtros">
 
-            <!--Filtro orden alfabetico-->
-            <section class="abc">
-                <select id="AZA">
-                    <option selected value="0">Seleccione orden</option>
-                    <option value="1" id="AZ">A-Z</option>
-                    <option value="2" id="ZA">Z-A</option>
-                </select>
-            </section>
-            <!--Filtro Tipo-->
-            <section class="tipos">
-                <select id="tipo">
-                    <option selected value="0">Tipo</option>
-                    <option value="Fighter">Fighter</option>
-                    <option value="Tank">Tank</option>
-                    <option value="Mage">Mage</option>
-                    <option value="Assassin">Assasin</option>
-                    <option value="Support">Support</option>
-                    <option value="Marksman">Marksman</option>
-                </select>
-            </section>
-            <!--Filtro Stats-->
-            <section class="stats">
-                <select id="stats">
-                    <option selected value="0">Stats</option>
-                    <option value="attack">Attack</option>
-                    <option value="defense">Defense</option>
-                    <option value="magic">Magic</option>
-                </select>
-            </section>
-            <!--Filtro dificultad-->
-            <section class="dificultad">
-                <select id="difficulty">
-                    <option selected value="0">Difficulty</option>
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
-                </select>
-            </section>
+        <!--Filtro orden alfabetico-->
+        <section class="abc">
+            <select id="AZA">
+                <option selected value="0">Seleccione orden</option>
+                <option value="1" id="AZ">A-Z</option>
+                <option value="2" id="ZA">Z-A</option>
+            </select>
+        </section>
+        <!--Filtro Tipo-->
+        <section class="tipos">
+            <select id="tipo">
+                <option selected value="0">Tipo</option>
+                <option value="Fighter">Fighter</option>
+                <option value="Tank">Tank</option>
+                <option value="Mage">Mage</option>
+                <option value="Assassin">Assasin</option>
+                <option value="Support">Support</option>
+                <option value="Marksman">Marksman</option>
+            </select>
+        </section>
+        <!--Filtro Stats-->
+        <section class="stats">
+            <select id="stats">
+                <option selected value="0">Stats</option>
+                <option value="attack">Attack</option>
+                <option value="defense">Defense</option>
+                <option value="magic">Magic</option>
+            </select>
+        </section>
+        <!--Filtro dificultad-->
+        <section class="dificultad">
+            <select id="difficulty">
+                <option selected value="0">Difficulty</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+        </section>
 
-            <input type="text" name="buscar" id="buscar" autocomplete="off" placeholder="Buscar Campeón">
+        <input type="text" name="buscar" id="buscar" autocomplete="off" placeholder="Buscar Campeón">
 
-        </nav>
+    </nav>
+</div>
+
+<!--Termino Contenedor-->
+
+<!--Contenedor de Campeones-->
+<div id="contenedorCampeones" class="contenedorCampeones">
+
+
+</div>
+
+<!--Botones siguiente y atras-->
+<div class="botones">
+    <div id="paginacion"></div>
+    <button type="button" id="botonatras">Atrás</button>
+    <button type="button" id="botonsiguiente">Siguiente</button> page: <span id="page"></span></div>
+
+
     </div>
-
-    <!--Termino Contenedor-->
-
-    <!--Contenedor de Campeones-->
-    <div id="contenedorCampeones" class="contenedorCampeones">
-
-
-    </div>
-
-    <!--Botones siguiente y atras-->
-    <div class="botones">
-        <div id="paginacion"></div>
-        <button type="button" id="botonatras">Atrás</button>
-        <button type="button" id="botonsiguiente">Siguiente</button> page: <span id="page"></span></div>
-
-
+    
     <footer>Teresa Oyarce - Nataly Farias &lt;L&gt; 2021
         <div class="piedepagina">
             <a href="https://www.youtube.com/channel/UCmvoPMHe9l0ytr9ONu5-1vw"><i class="fab fa-youtube"></i>

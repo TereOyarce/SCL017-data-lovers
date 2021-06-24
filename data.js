@@ -274,17 +274,23 @@ filtrarPorStats.addEventListener("change", (event) => {
     const statsCampeon = String(event.target.value);
     switch (statsCampeon) {
         case "attack":
-            let attackCampeon = dataSorteada.sort(function(a, b) { return b.info.attack - a.info.attack });
-            crearCartas(8, valorPaginaActual, attackCampeon);
-            break;
+            {
+                let attackCampeon = dataSorteada.sort(function(a, b) { return b.info.attack - a.info.attack });
+                crearCartas(8, valorPaginaActual, attackCampeon);
+                break;
+            }
         case "defense":
-            let defenseCampeon = dataSorteada.sort(function(c, d) { return d.info.defense - c.info.defense });
-            crearCartas(8, valorPaginaActual, defenseCampeon);
-            break;
+            {
+                let defenseCampeon = dataSorteada.sort(function(c, d) { return d.info.defense - c.info.defense });
+                crearCartas(8, valorPaginaActual, defenseCampeon);
+                break;
+            }
         case "magic":
-            let magicCampeon = dataSorteada.sort(function(e, f) { return f.info.magic - e.info.magic });
-            crearCartas(8, valorPaginaActual, magicCampeon);
-            break;
+            {
+                let magicCampeon = dataSorteada.sort(function(e, f) { return f.info.magic - e.info.magic });
+                crearCartas(8, valorPaginaActual, magicCampeon);
+                break;
+            }
         default:
             crearCartas(8, valorPaginaActual, dataPorDefecto);
             break;

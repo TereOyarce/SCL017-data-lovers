@@ -69,7 +69,7 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
         const lolattack = document.createElement("h2");
         lolattack.textContent = "Attack     " + dataLolAsArray[ch].info.attack;
         const attackimg = document.createElement("img");
-        attackimg.src = "../src/images/icon-attack.png";
+        attackimg.src = "images/icon-attack.png";
 
         //Contenedor Defensa
         const contdefense = document.createElement("section");
@@ -77,7 +77,7 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
         const loldefense = document.createElement("h2");
         loldefense.textContent = "Defense  " + dataLolAsArray[ch].info.defense;
         const defenseimg = document.createElement("img");
-        defenseimg.src = "../src/images/icon-defense.png";
+        defenseimg.src = "images/icon-defense.png";
 
         //Contenedor Magic
         const contmagic = document.createElement("section");
@@ -85,7 +85,7 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
         const lolmagic = document.createElement("h2");
         lolmagic.textContent = "Magic  " + dataLolAsArray[ch].info.magic;
         const magicimg = document.createElement("img");
-        magicimg.src = "../src/images/icon-magic.png";
+        magicimg.src = "images/icon-magic.png";
 
         //Contenedor Dificultad
         const contdifficulty = document.createElement("section");
@@ -93,7 +93,7 @@ function crearCartas(cantPaginas, numPagina, dataLolAsArray) {
         const loldifficulty = document.createElement("h2");
         loldifficulty.textContent = "Difficulty  " + dataLolAsArray[ch].info.difficulty;
         const difficultyimg = document.createElement("img");
-        difficultyimg.src = "../src/images/icon-difficulty.png";
+        difficultyimg.src = "images/icon-difficulty.png";
 
         lolback.appendChild(loltags);
         lolback.appendChild(contattack);

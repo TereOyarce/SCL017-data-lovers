@@ -14,7 +14,7 @@
 ***
 
 ## 1. Definición  
-Nuestro producto fue desarrollado para que el usuario en este caso jugador de League of Legends pueda ver en una lista los diferentes campeones, además se desea filtrar la información requerida por los usuarios, sobre de cada uno de los campeones ,  lo que le permitirá, por ejempl,o al momento de escoger un campeón, poder hacerlo de forma acertada según el nivel de dificultad de acuerdo a su experiencia.  
+Nuestro producto fue desarrollado para que el usuario en este caso jugador de League of Legends pueda ver en una lista los diferentes campeones, además de poder filtrar la información que  considera de gran utilidad al momento de jugar, permitiendo por ejemplo que al momento de escoger un campeón, el jugador pueda hacerlo de forma acertada según el nivel de dificultad y de acuerdo a su experiencia como jugador, por lo que esta pagina esta pensada tanto para aquellos usuarios que estan iniciando en el juego como para los mas experimentados. 
 
 ***  
   
@@ -22,7 +22,7 @@ Nuestro producto fue desarrollado para que el usuario en este caso jugador de Le
 
 La organización de las tareas en cada sprint, se llevó a cabo mediante la plataforma  de trello.
 La primera labor que se realizó fue establecer nuestros objetivos y determinar qué tareas llevaríamos a cabo en nuestro primer sprint de trabajo, en este sprint se opto por iniciar con tareas de UX que nos permitieran un enfoque principal en el usuario de nuestra página y sus necesidades, para ser utilizados como guía a todo el proceso, las tareas que llevaron a cabo en este primer sprint fueron las siguientes:  
-•	Elaborar una encuesta a través de un formulario de Google, para determinar nuestros usuarios y sus necesidades en relación a la pagina.  
+•	Elaborar una encuesta a través de un formulario de Google, para determinar quienes son nuestros usuarios y sus necesidades en relación a la pagina.  
 •	Análisis de la data recibida a través de la encuesta.  
 •	Elaborar Historias de Usuario.  
 •	Realizar prototipado de baja fidelidad.  
